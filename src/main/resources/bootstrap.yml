@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: eva-app
+  cloud:
+    config:
+      uri: http://192.168.5.47:8888
+  profiles:
+    active: dev
+logging:
+  level:
+    root: info
