@@ -1,4 +1,6 @@
 spring:
+  application:
+      name: eva-app
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     url: jdbc:mysql://167.179.64.235:3306/message_app?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8
