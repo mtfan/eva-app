@@ -51,13 +51,26 @@ spring:
     #数据库编号，默认值：0
     database: 0
 
-  http:
-    encoding:
-      enabled: true
-      force: true
-      charset: UTF-8
+management:
+  server:
+    servlet:
+      context-path: /actuator
+  endpoints:
+    web:
+      exposure:
+        include: "*"
 
-server:
-  port: 8080
-  servlet:
-    context-path: /eva-app
+info:
+  title: @project.name@
+  version: @project.version@
+  description: @project.description@
+
+eureka:
+  instance:
+    prefer-ip-address: true
+    status-page-url: http://${spring.cloud.client.ip-address}:${server.port}/${spring.application.name}/actuator/health
+    status-page-url-path: http://${spring.cloud.client.ip-address}:${server.port}/${spring.application.name}/actuator/health
+    health-check-url: http://${spring.cloud.client.ip-address}:${server.port}/${spring.application.name}/actuator/health
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8888/eureka/,http://localhost:8889/eureka/,http://localhost:8887/eureka/

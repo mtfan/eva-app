@@ -69,7 +69,7 @@ public class CacheApi {
         RLock lock = redissonClient.getLock("Byron-Redisson");
         try {
             lock.tryLock();
-            log.info("lock lock()！！！");
+            //log.info("lock lock()！！！");
             ListOperations<String, Object> listOperations = redisTemplate.opsForList();
             Integer times = 10;
             for (int i = 1; i <= times; i++) {
@@ -78,10 +78,10 @@ public class CacheApi {
             }
             System.out.println("list_key:" + listOperations.range("list_key", 0, -1));
         } catch (Exception e) {
-            log.error("lock has error!!!", e);
+            //log.error("lock has error!!!", e);
         } finally {
             lock.unlock();
-            log.info("lock unlock！！！");
+            //log.info("lock unlock！！！");
         }
     }
 }
